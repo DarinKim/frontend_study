@@ -1,9 +1,12 @@
-<!doctype html>
+<!Doctype html>
 <html lang="ko">
 
 <head>
     <meta charset="UTF-8">
-    <title>Javascript를 연습하자!</title>
+    <title>jQuery 연습하고 가기!</title>
+
+    <!-- JQuery를 import 합니다 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style type="text/css">
         div.question-box {
@@ -12,33 +15,28 @@
     </style>
 
     <script>
-        // 버튼을 누른 횟수를 저장할 변수 선언
-		let count = 0;
-		function showButtonCount(){
-		    // 1. 버튼을 누를 때마다(함수를 호출할 때마다) 누른 횟수 증가
-		    count= count + 1;
-			// 2. 누른 횟수가 20 미만이면 "안녕! {{실제 누른 횟수}} 번 누르셨네요!" alert 창 띄우기
-			if (count < 20) {
-			    alert('안녕! {{' + count + '}} 번 누르셨네요!');
+        function isEmpty() {
+            // 1. input-value의 입력값을 가져온다.
+            let val = $('#input-value').val();
+            // 2. 만약 입력값이 빈칸이면 if(입력값=='')
+            if(val == '') {
+                alert('값을 입력하세요');
             }
-			// 3. 누른 횟수가 20번 이상이면,'앗. 그만 누르세요 이제!' alert 창 띄우기
-			else if(count >= 20) {
-			    alert('앗. 그만 누르세요 이제!');
-            }
-		}
+            // 3. alert(입력값) 띄우기
+        }
     </script>
 
 </head>
 
 <body>
-<h1>Javascript를 연습하자!</h1>
+<h1>jQuery + Javascript의 조합을 연습하자!</h1>
 
 <div class="question-box">
-    <h2>누른 횟수를 보여주는 함수 만들기</h2>
-    <h5>1. 버튼을 누를 때마다(함수를 호출할 때마다) 누른 횟수 증가</h5>
-    <h5>2. 누른 횟수가 20 미만이면 "안녕! {{실제 누른 횟수}} 번 누르셨네요!" alert 창 띄우기</h5>
-    <h5>3. 누른 횟수가 20번 이상이면,'앗. 그만 누르세요 이제!' alert 창 띄우기</h5>
-    <button onclick="showButtonCount()">클릭</button>
+    <h2>빈칸 체크 함수 만들기</h2>
+    <h5>1-1. 버튼을 눌렀을 때 입력한 글자로 얼럿 띄우기</h5>
+    <h5>[완성본]1-2. 버튼을 눌렀을 때 칸에 아무것도 없으면 "입력하세요!" 얼럿 띄우기</h5>
+    <input id="input-value" type="text"/>
+    <button onclick="isEmpty()">클릭</button>
 </div>
 </body>
 
