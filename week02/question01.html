@@ -15,14 +15,21 @@
     </style>
 
     <script>
-        function isEmpty() {
-            // 1. input-value의 입력값을 가져온다.
-            let val = $('#input-value').val();
-            // 2. 만약 입력값이 빈칸이면 if(입력값=='')
-            if(val == '') {
-                alert('값을 입력하세요');
+        function validateEmail() {
+            // 1. input-email 값을 가져온다.
+            let emailValue = $('#input-email').val();
+            // 2. 만약 가져온 값에 @가 있으면 (includes 이용하기 - 찾아보자!)
+            // 3. contact@gmail.com -> gmail 만 추출해서
+            // 4. alert(도메인 값);으로 띄우기
+            if(emailValue.includes('@')) {
+                let domainWithDot = emailValue.split('@')[1];
+                let domain = domainWithDot.split('.')[0];
+                alert(domain);
             }
-            // 3. alert(입력값) 띄우기
+            // 5. 만약 이메일이 아니면 '이메일이 아닙니다.' 라는 얼럿 띄우기
+            else {
+                alert('이메일이 아닙니다.');
+            }
         }
     </script>
 
@@ -32,11 +39,12 @@
 <h1>jQuery + Javascript의 조합을 연습하자!</h1>
 
 <div class="question-box">
-    <h2>빈칸 체크 함수 만들기</h2>
-    <h5>1-1. 버튼을 눌렀을 때 입력한 글자로 얼럿 띄우기</h5>
-    <h5>[완성본]1-2. 버튼을 눌렀을 때 칸에 아무것도 없으면 "입력하세요!" 얼럿 띄우기</h5>
-    <input id="input-value" type="text"/>
-    <button onclick="isEmpty()">클릭</button>
+    <h2>이메일 판별 함수 만들기</h2>
+    <h5>1. 버튼을 눌렀을 때 입력받은 이메일로 얼럿 띄우기</h5>
+    <h5>2. 이메일이 아니면(@가 없으면) '이메일이 아닙니다'라는 얼럿 띄우기</h5>
+    <h5>[완성본]3. 이메일 도메인만 얼럿 띄우기</h5>
+    <input id="input-email" type="text"/>
+    <button onclick="validateEmail()">클릭</button>
 </div>
 </body>
 
