@@ -39,11 +39,21 @@
                         let bikeStationLocation = bikeStatus['stationName'];
                         let rackTotCnt = bikeStatus['rackTotCnt'];
                         let parkingBikeTotCnt = bikeStatus['parkingBikeTotCnt'];
-                        let outString = `<tr>
+                        let outString;
+                        if(parkingBikeTotCnt <= 5) {
+                            outString = `<tr style="color:red"  >
                                             <td>${bikeStationLocation}</td>
                                             <td>${rackTotCnt}</td>
                                             <td>${parkingBikeTotCnt}</td>
                                         </tr>`
+                        }
+                        else {
+                            outString = `<tr>
+                                            <td>${bikeStationLocation}</td>
+                                            <td>${rackTotCnt}</td>
+                                            <td>${parkingBikeTotCnt}</td>
+                                        </tr>`
+                        }
                         $('#bike-info').append(outString);
                     }
                 },
