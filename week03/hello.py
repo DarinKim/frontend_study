@@ -119,6 +119,7 @@ professor_wizards = [
     {'name':'맥고나걸', 'age':85},
     {'name':'스네이프', 'age':60},
 ]
+
 # 마법사 이름을 받으면 list에서 찾아서 age 리턴
 def get_age(name, wizards):
     for wizard in wizards:
@@ -129,3 +130,4 @@ def get_age(name, wizards):
 print(get_age('덤블도어', professor_wizards))
 print(get_age('맥고나걸', professor_wizards))
 print(get_age('해리', professor_wizards))
+
