@@ -94,11 +94,13 @@
                 $.ajax({
                     type: 'POST',
                     url: '/api/like',
-                    data: {},
+                    data: {
+                        'name_give': name
+                        },
                     success: function (response) {
                         if (response['result'] == 'success') {
-                            let msg = response['msg'];
-                            alert(msg);
+                            alert('좋아요 완료!')
+                            window.location.reload()
                         }
                     }
                 });
@@ -108,11 +110,11 @@
                 $.ajax({
                     type: 'POST',
                     url: '/api/delete',
-                    data: {},
+                    data: { 'name_give': name },
                     success: function (response) {
                         if (response['result'] == 'success') {
-                            let msg = response['msg'];
-                            alert(msg);
+                            alert('삭제 완료!');
+                            window.location.reload()
                         }
                     }
                 });
